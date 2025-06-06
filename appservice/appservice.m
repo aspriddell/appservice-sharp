@@ -102,6 +102,10 @@ uint8_t unregisterService(CFTypeRef smPtr) {
     return [service unregisterAndReturnError:&error] ? SERVICE_ERROR_NONE : convertSMError(error);
 }
 
+void openSystemSettings(void) {
+    [SMAppService openSystemSettingsLoginItems];
+}
+
 uint8_t convertSMError(NSError* error) {
     switch (error.code) {
         case kSMErrorAuthorizationFailure:
