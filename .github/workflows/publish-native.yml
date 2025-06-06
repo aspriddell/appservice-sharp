@@ -1,4 +1,4 @@
-name: Publish
+name: Publish (Native)
 
 on:
   workflow_dispatch: 
@@ -29,28 +29,34 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
-        
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
       - name: Prepare Build Dir
         run: mkdir -p ${{ env.XCODE_BUILD_DIR }}
 
       - name: Perform Xcode Build
         run: |
-          xcodebuild -project appservice.xcodeproj -sdk macosx -scheme appservice build
-        env:
-          BUILD_DIR: ${{ env.XCODE_BUILD_DIR }}
-          CONFIGURATION_BUILD_DIR: ${{ env.XCODE_BUILD_DIR }}
-          ONLY_ACTIVE_ARCH: NO
+          xcodebuild \
+          -project appservice.xcodeproj \
+          -scheme appservice \
+          -sdk macosx \
+          BUILD_DIR=${{ env.XCODE_BUILD_DIR }} \
+          CONFIGURATION_BUILD_DIR=${{ env.XCODE_BUILD_DIR }} \
+          ONLY_ACTIVE_ARCH=NO \
+          build
           
       - name: Transfer Build Artifacts
         run: |
           mkdir -p ${{ env.DOTNET_NATIVE_DIR }}
-          rm -rf ${{ env.DOTNET_NATIVE_DIR }}/*
+          rm -rf ${{ env.DOTNET_NATIVE_DIR }}*
           cp ${{ env.XCODE_BUILD_DIR }}/*.dylib ${{ env.DOTNET_NATIVE_DIR }}
         env:
-          DOTNET_NATIVE_DIR: ./AppServiceSharp.Native/runtimes/osx/native
+          DOTNET_NATIVE_DIR: ./AppServiceSharp.Native/runtimes/osx/native/
 
       - name: Pack
-        run: dotnet pack -c Release --no-build -o ./packages -p:PackageVersion=${{ github.event.inputs.version }} AppServiceSharp.Native/AppServiceSharp.Native.csproj
+        run: dotnet pack -c Release -o ./packages -p:PackageVersion=${{ github.event.inputs.version }} AppServiceSharp.Native/AppServiceSharp.Native.csproj
 
       - name: Publish Package (NuGet)
         if: github.event.inputs.nuget == 'true'
