@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>AppServiceSharp</Title>
+        <Authors>Albie Spriddell</Authors>
+        <Description>macOS SMAppService bindings for .NET</Description>
+
+        <PackageId>AppServiceSharp</PackageId>
+        <PackageTags>smappservice,macos</PackageTags>
+        <PackageReadmeFile>docs/readme.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+        <PackageTags>smappservice,macos</PackageTags>
+        <PackageReadmeFile>docs/readme.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+        <RepositoryType>Git</RepositoryType>
+        <RepositoryUrl>https://github.com/aspriddell/appservice-sharp</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/aspriddell/appservice-sharp</PackageProjectUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\readme.md" Pack="true" PackagePath="docs" Visible="false"/>
+    </ItemGroup>
+
+</Project>

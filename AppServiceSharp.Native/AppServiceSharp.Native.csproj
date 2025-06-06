@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>Albie Spriddell</Authors>
+        <Title>AppServiceSharp (Native)</Title>
+        <Description>Native files for AppServiceSharp</Description>
+
+        <PackageId>AppServiceSharp.Native</PackageId>
+        <PackageTags>smappservice,macos</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+        <IncludeSymbols>false</IncludeSymbols>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+
+        <RepositoryType>Git</RepositoryType>
+        <RepositoryUrl>https://github.com/aspriddell/appservice-sharp</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/aspriddell/appservice-sharp</PackageProjectUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="runtimes\**\native\*">
+            <Pack>true</Pack>
+            <PackagePath>runtimes</PackagePath>
+        </None>
+
+        <None Include="_._">
+            <!-- https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5128#scenario-2 -->
+            <Pack>true</Pack>
+            <PackagePath>lib\$(TargetFramework)</PackagePath>
+        </None>
+    </ItemGroup>
+
+</Project>
