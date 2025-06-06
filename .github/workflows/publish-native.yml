@@ -26,6 +26,7 @@ jobs:
     
     env: 
       XCODE_BUILD_DIR: /tmp/appservice-build
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
     
     steps:
       - uses: actions/checkout@v4

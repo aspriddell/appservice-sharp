@@ -34,4 +34,8 @@
         <None Include="..\readme.md" Pack="true" PackagePath="docs" Visible="false"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AppServiceSharp.Native" Version="1.0.0" />
+    </ItemGroup>
+
 </Project>
