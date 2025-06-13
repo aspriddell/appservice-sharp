@@ -35,7 +35,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AppServiceSharp.Native" Version="1.0.0" />
+      <PackageReference Include="AppServiceSharp.Native" Version="1.0.1" />
     </ItemGroup>
 
 </Project>
