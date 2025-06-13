@@ -31,7 +31,7 @@
 #define SERVICE_ERROR_TOOLNOTVALID 11
 
 FOUNDATION_EXPORT CFTypeRef getMainAppServiceManager(void);
-FOUNDATION_EXPORT CFTypeRef createAppServiceFromIdentifer(const char* identifier, uint8_t identifierType);
+FOUNDATION_EXPORT CFTypeRef createAppServiceFromIdentifier(const char* identifier, uint8_t identifierType);
 FOUNDATION_EXPORT void destroyAppService(CFTypeRef smPtr);
 
 // methods return a SERVICE_STATUS_* value

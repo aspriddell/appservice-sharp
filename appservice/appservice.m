@@ -15,7 +15,7 @@ CFTypeRef getMainAppServiceManager(void) {
     return (__bridge CFTypeRef)[SMAppService mainAppService];
 }
 
-CFTypeRef createAppServiceFromIdentifer(const char* identifier, uint8_t identifierType) {
+CFTypeRef createAppServiceFromIdentifier(const char* identifier, uint8_t identifierType) {
     if (identifier == NULL) {
         return NULL;
     }
