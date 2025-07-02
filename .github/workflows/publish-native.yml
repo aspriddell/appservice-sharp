@@ -43,6 +43,7 @@ jobs:
           -project appservice.xcodeproj \
           -scheme appservice \
           -sdk macosx \
+          -configuration Release \
           BUILD_DIR=${{ env.XCODE_BUILD_DIR }} \
           CONFIGURATION_BUILD_DIR=${{ env.XCODE_BUILD_DIR }} \
           ONLY_ACTIVE_ARCH=NO \
